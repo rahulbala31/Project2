@@ -1,0 +1,13 @@
+Explanation of the Project :
+Necessary header files are given and keypad rows and columns are defined . Global variables and arrays are declared to store keypad mappings and product stock counts. The interrupt() function handles interrupts. The main() function initializes various peripherals, including the keypad, LCD, GPIO. The LCD is configured to display an initial menu showing the available products: Cola, Pepsi, Sting, and Fizz. The program continuously scans for keypad input, processes the selected item, and updates the display accordingly. When a key is pressed, the program checks if the key corresponds to a product (1-4) and checks  the product is in stock, the corresponding LED blinks, and the stock count is decremented. If out of stock, an "out of stock" message is displayed, and the buzzer is activated.
+Keypad Scanning and Input Handling:
+•	The keyinit() function sets up the keypad by configuring the TRISB register for input  
+•	The key() function scans the keypad matrix to detect which key is pressed. It identifies the row and column of the pressed key and stores this information in an array for further processing.
+
+Display and Control Functions :
+•	Cmd() sends commands to the LCD.
+•	Data() sends data to the LCD.
+•	Send2Lcd() displays strings on the LCD.
+•	delay_ms() and delay_us() provide millisecond and microsecond delays, respectively.
+Role of decoder and NOT gate:
+When the user presses a key on the keypad, the microcontroller processes this input and generates a binary code corresponding to the selected item. This binary code is fed into the decoder, which activates one of its output lines. The output from the decoder goes through a NOT gate, which inverts the signal. The inverted signal is used to control the LEDs. High and low signal from the NOT gate turns on or off the corresponding LED’s, indicating the selected item with a delay of 3 seconds.
